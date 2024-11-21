@@ -1,0 +1,513 @@
+/* Reset and Basic Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  background-color: #f3f3f3;
+  color: #333;
+}
+
+/* Sidebar Styling */
+.sidebar {
+  position: fixed;
+  top: 50%;
+  left: 20px;
+  transform: translateY(-50%);
+  background-color: #f3f3f3;
+  width: 60px;
+  padding: 5px 0;
+  border-right: none; /* Border di samping kanan */
+  border-bottom: 4px solid #000; /* Border di bawah */
+  border-left: 4px solid #000;
+  border-top: 4px solid #000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  margin: 10px;
+  text-align: center;
+}
+
+/* Sidebar Navigation with Right and Bottom Border */
+/* Sidebar Navigation with Right and Bottom Border */
+.sidebar ul li a {
+  color: #fff;
+  font-size: 14px;
+  text-decoration: none;
+  padding: 8px;
+  display: block;
+  transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  border-right: 4px solid #000; /* Border di samping kanan */
+  border-bottom: 4px solid #000; /* Border di bawah */
+  border-left: none;
+  border-top: none;
+  background-color: blue;
+  box-shadow: 4px 4px 0px #000; /* Shadow awal */
+}
+
+.sidebar ul li a:hover {
+  transform: translate(4px, 4px); /* Tombol "masuk" ke dalam */
+  background-color: blue; /* Warna sedikit lebih gelap */
+  border-right-color: transparent; /* Hilangkan border kanan */
+  border-bottom-color: transparent; /* Hilangkan border bawah */
+  box-shadow: none; /* Hilangkan shadow */
+}
+
+.sidebar ul li a:active {
+  transform: translate(6px, 6px); /* Simulasi lebih dalam saat tombol ditekan */
+  background-color: blue;
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+  box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.3); /* Inner shadow untuk efek tertekan */
+}
+
+/* Main Content Container */
+.comic-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  display: grid;
+  gap: 20px;
+  padding-left: 80px; /* Offset for the sidebar */
+}
+
+.header-panel {
+  background: #ffcc00;
+  padding: 20px;
+  text-align: center;
+  border: 4px solid #000;
+}
+
+.panel {
+  background: #fff;
+  padding: 20px;
+  border: 4px solid #000;
+}
+
+/* Profile Panel Styling */
+.profile-panel {
+  padding-top: 20px;
+  text-align: center;
+}
+
+.profile-pic {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 4px solid #000;
+  margin-bottom: 10px;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.social-icons img {
+  width: 32px;
+  height: 32px;
+  transition: transform 0.3s;
+}
+
+.social-icons a:hover img {
+  transform: scale(1.2);
+}
+
+/* Portfolio Items */
+.portfolio-items {
+  display: flex;
+  gap: 10px;
+  overflow: hidden;
+}
+
+.portfolio-item {
+  background: #ffeb3b;
+  padding: 15px;
+  border: 2px solid #000;
+  transition: transform 0.3s;
+  cursor: pointer;
+}
+
+.portfolio-item:hover {
+  transform: scale(1.1);
+}
+/* skill */
+/* Styling untuk Skill Icons */
+.skill {
+  display: flex;
+
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  padding: 10px;
+}
+
+.skill img {
+  background-color: #fff;
+  width: 40px;
+  height: 40px;
+  transition: transform 0.3s, filter 0.3s;
+  border: 3px solid #000;
+  border-radius: 10px;
+  padding: 5px;
+  box-shadow: 5px 5px 0px #000;
+}
+
+.skill img:hover {
+  transform: scale(1.2) rotate(-5deg); /* Besarkan dan rotasi */
+  filter: brightness(1.2); /* Meningkatkan kecerahan */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.6); /* Efek bayangan */
+  border: none; /* Hilangkan border saat hover */
+}
+
+/* Animasi Sertifikat: Zoom In */
+@keyframes zoomIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Animasi untuk Sertifikat: Hover efek */
+@keyframes flipIn {
+  0% {
+    transform: rotateY(90deg);
+    opacity: 0;
+  }
+  100% {
+    transform: rotateY(0);
+    opacity: 1;
+  }
+}
+
+/* Sertifikat Container */
+.certificat {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 5px;
+  margin-top: 30px;
+  position: relative;
+}
+
+/* Sertifikat Individual */
+.certificat img {
+  width: 100px;
+  height: 100px;
+  border: 3px solid #000;
+  border-radius: 10px;
+  padding: 5px;
+  box-shadow: 5px 5px 0px #000;
+  opacity: 0;
+  animation: zoomIn 1s ease-out forwards; /* Animasi Zoom-In */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+}
+
+/* Sertifikat Hover Effect */
+.certificat img:hover {
+  transform: scale(1.1); /* Membesarkan gambar saat hover */
+  filter: brightness(1.2); /* Menambahkan kecerahan */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Bayangan lebih tajam */
+}
+
+/* Responsiveness untuk Sertifikat */
+
+/* Animasi Hover: Flip In untuk Sertifikat */
+.certificat img:hover {
+  animation: flipIn 1s ease-out forwards;
+}
+
+/* Responsive Design untuk Skill dan Sertifikat */
+@media (max-width: 768px) {
+  .skill img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .certificat img {
+    width: 120px;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 90%;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 20px; /* Tinggi navbar */
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    transform: none;
+    border-right: none;
+    border-top: 4px solid #000;
+    background-color: #f3f3f3;
+    z-index: 1;
+  }
+
+  .sidebar ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+  }
+
+  .sidebar ul li a {
+    writing-mode: horizontal-tb;
+    text-orientation: initial;
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .comic-container {
+    padding: 20px; /* Kurangi padding di layar kecil */
+    display: flex;
+    flex-direction: column; /* Atur elemen dalam satu kolom */
+    gap: 15px; /* Tambahkan jarak antar elemen */
+  }
+
+  .header-panel {
+    text-align: center; /* Pusatkan teks */
+    font-size: 1rem; /* Sesuaikan ukuran font */
+    padding: 15px;
+  }
+
+  .profile-panel {
+    align-items: center; /* Pusatkan elemen */
+    padding: 10px;
+  }
+
+  .profile-pic {
+    width: 120px;
+    height: 120px;
+  }
+
+  .social-icons img {
+    width: 24px;
+    height: 24px; /* Kecilkan ikon sosial */
+  }
+
+  .panel {
+    padding: 10px;
+    font-size: 0.9rem; /* Sesuaikan ukuran font */
+  }
+
+  .portfolio-items {
+    flex-wrap: wrap; /* Elemen portfolio menyusun secara fleksibel */
+    justify-content: center; /* Pusatkan elemen */
+  }
+
+  .portfolio-item {
+    flex: 0 1 calc(100% - 20px); /* Buat elemen memenuhi lebar layar */
+    text-align: center;
+  }
+}
+
+/* Animasi Masuk untuk Konten */
+@keyframes slideInFromLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Animasi untuk Konten yang Muncul saat Scroll */
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Class yang akan diterapkan ketika elemen berada di viewport */
+.scroll-in {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: slideUp 1s ease-out forwards;
+}
+
+/* Class tambahan untuk fade-in */
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 1s ease-out forwards;
+}
+
+/* Reset untuk elemen yang akan di-animate */
+.panel {
+  opacity: 0; /* Mulai dengan opacity 0 (tidak terlihat) */
+  transform: translateX(100px); /* Mulai di luar layar, geser ke kanan */
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* Animasi ketika elemen muncul dari kiri */
+.panel.left {
+  transform: translateX(-100px); /* Elemen akan masuk dari kiri */
+}
+
+/* Animasi ketika elemen muncul dari kanan */
+.panel.right {
+  transform: translateX(100px); /* Elemen akan masuk dari kanan */
+}
+
+/* Animasi saat elemen muncul di viewport */
+.panel.visible {
+  opacity: 1;
+  transform: translateX(0); /* Kembalikan posisi elemen */
+}
+
+/* Sertifikat atau gambar animasi yang lebih spesifik */
+.certificat img {
+  opacity: 0;
+  transform: translateY(30px); /* Mulai dari bawah */
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.certificat img.visible {
+  opacity: 1;
+  transform: translateY(0); /* Kembali ke posisi normal */
+}
+
+/* Styling untuk Panel About */
+.panel {
+  opacity: 0; /* Mulai dengan opacity 0 untuk animasi */
+  transform: translateX(-100px); /* Mulai dari kiri layar */
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  padding: 20px;
+  background-color: #fff;
+  border: 4px solid #000;
+  margin-bottom: 20px;
+}
+
+.panel.left {
+  transform: translateX(-100px); /* Masuk dari kiri */
+}
+
+/* Ketika elemen menjadi visible (terlihat di layar) */
+.panel.visible {
+  opacity: 1;
+  transform: translateX(0); /* Posisi akhir setelah animasi */
+}
+
+/* Styling untuk About Content (gambar dan teks) */
+.about-content {
+  display: flex; /* Menggunakan Flexbox untuk menyusun gambar dan teks dalam satu baris */
+  align-items: center; /* Memastikan teks dan gambar sejajar secara vertikal */
+  gap: 20px; /* Memberikan ruang antara gambar dan teks */
+}
+
+.profile-img {
+  width: 350px;
+  height: 250px;
+  border-radius: 10%;
+  border: 4px solid #000;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s, filter 0.3s;
+  margin-bottom: 20px;
+}
+
+.profile-img:hover {
+  transform: scale(1.1); /* Gambar membesar sedikit saat hover */
+  filter: brightness(1.2); /* Meningkatkan kecerahan */
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.4); /* Efek bayangan saat hover */
+}
+
+/* Styling untuk teks paragraf */
+.panel p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #333;
+  text-align: justify;
+}
+
+/* Styling khusus untuk paragraf pendidikan dan judul */
+.education {
+  font-size: 1.1rem;
+  color: #555;
+  font-style: italic;
+  margin-top: 15px;
+}
+
+.title {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-top: 10px;
+  color: #000;
+}
+
+/* Responsif untuk gambar profil */
+@media (max-width: 768px) {
+  .profile-img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .panel p {
+    font-size: 1rem;
+  }
+
+  .about-content {
+    flex-direction: column; /* Mengubah gambar dan teks menjadi vertikal pada layar kecil */
+    align-items: center; /* Memastikan keduanya sejajar secara horizontal */
+    text-align: center; /* Menyelaraskan teks ke tengah */
+  }
+  .certificat img {
+    width: 90px;
+    height: 90px;
+    padding: 2px;
+    margin: 5px;
+    gap: 3;
+  }
+}
